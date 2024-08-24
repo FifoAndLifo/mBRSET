@@ -278,7 +278,7 @@ def show_random_images(dataset_dir, image_folder, id_column, class_column, max_i
     fig, axes = plt.subplots(nrows=2, ncols=3, figsize=(12,10))
 
     for i, image_id in enumerate(sample_ids):
-        image_path = os.path.join(image_folder, f'{image_id}.jpg')
+        image_path = os.path.join(image_folder, f'{image_id}')
 
         img = cv2.imread(image_path)
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -286,6 +286,7 @@ def show_random_images(dataset_dir, image_folder, id_column, class_column, max_i
         subplot_row = i // 3
         subplot_col = i % 3
 
+        print('ROW', subplot_row, '\nCOLUMN', subplot_col)
         ax = axes[subplot_row, subplot_col]
 
         class_value = df.loc[df[id_column] == image_id, class_column].values[0]
