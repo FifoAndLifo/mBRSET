@@ -78,7 +78,7 @@ class ImageFolderDataset(Dataset):
         tuple: A tuple containing the image file name and the preprocessed image as a PyTorch tensor.
         """
         img_name = self.image_files[idx]
-        img_path = os.path.join(self.folder_path, img_name)
+        img_path = os.path.join('data', img_name)
         img = Image.open(img_path).convert("RGB")
         img = self.transform(img)
         return img_name, img
@@ -286,7 +286,8 @@ class BRSETDataset(Dataset):
         # Images:
         img_path = self.image_data[idx]
 
-        img = Image.open( os.path.join(self.images_dir, img_path) ).convert("RGB")
+        img = Image.open( os.path.join('data/images', img_path) ).convert("RGB")
+        #img = Image.open( os.path.join(self.images_dir, img_path) ).convert("RGB")
         img = self.transform(img)
 
         return {

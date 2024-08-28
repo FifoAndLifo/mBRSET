@@ -109,7 +109,8 @@ def get_dataset(data_dir, download=False, info=False):
     
     if download:
         download_dataset(output_dir=data_dir)
-        
+    
+    data_dir = 'data'
     print(f'loading csv file in {data_dir}/labels.csv')
     df_path = os.path.join(data_dir, 'labels.csv')
     df = pd.read_csv(df_path)
